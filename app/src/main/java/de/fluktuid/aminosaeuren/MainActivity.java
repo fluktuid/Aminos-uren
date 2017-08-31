@@ -129,26 +129,26 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<Aminosäure> loadAminosaeuren() {
         ArrayList<Aminosäure> saeuren = new ArrayList<>();
         //TODO: Aminosäuren hinzufügen
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.alanin), "alanin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.arginin), "arginin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.asparagin), "asparagin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.asparaginsaeure), "asparaginsäure"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.cystein), "cystein"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_alanin), "alanin"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_arginin), "arginin"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_asparagin), "asparagin"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_asparaginsaeure), "asparaginsäure"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_cystein), "cystein"));
         saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.glutamin), "glutamin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.glutaminsaeure), "glutaminsäure"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_glutaminsaeure), "glutaminsäure"));
         saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.glycine), "glycine"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.histidin), "histidin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.isoleucine), "isoleucine"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.leucin), "leucin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.lysine), "lysine"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.methionin), "methionin"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.phenylalanine), "phenylalanine"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.proline), "proline"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.serine), "serine"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_histidin), "histidin"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_isoleucine), "isoleucine"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_leucin), "leucin"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_lysine), "lysine"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_methionin), "methionin"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_phenylalanine), "phenylalanine"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_proline), "proline"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_serine), "serine"));
         saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.threonine), "threonine"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.tryptophan), "tryptophan"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.tyrosine), "tyrosine"));
-        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.valine), "valine"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_tryptophan), "tryptophan"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_tyrosine), "tyrosine"));
+        saeuren.add(new Aminosäure(getResources().getDrawable(R.drawable.ic_valine), "valine"));
         Collections.shuffle(saeuren, random);
 
         return saeuren;
