@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     private Random random = new Random();
     private ArrayList<Aminosäure> leftOverAcidList = new ArrayList<>();
     private ArrayList<Aminosäure> acidList = new ArrayList<>();
+    private TextView position;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        position = (TextView) findViewById(R.id.position);
 
         leftOverAcidList = loadAminosaeuren();
         acidList = new ArrayList<>(leftOverAcidList);
@@ -153,7 +157,10 @@ public class MainActivity extends AppCompatActivity
     private Aminosäure currentAmino = null;
 
     private void setAminosaeure() {
+        if (currentAmino != null)
+            leftOverAcidList.remove(currentAmino);
         int chosen = random.nextInt(leftOverAcidList.size());
+        position.setText((acidList.size() - leftOverAcidList.size()) + 1 + "/" + acidList.size());
         currentAmino = leftOverAcidList.get(chosen);
         acid.setImageDrawable(currentAmino.getDrawable());
         int[] x;
@@ -189,6 +196,10 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Die Antwort war korrekt.", Toast.LENGTH_SHORT).show();
         else
             Toast.makeText(this, "Die Antwort war falsch.\nKorrekt wäre " + currentAmino.getName() + " gewesen.", Toast.LENGTH_SHORT).show();
-        setAminosaeure();
+        if (leftOverAcidList.size() > 0)
+            setAminosaeure();
+        else {
+            //fertig
+        }
     }
 }
