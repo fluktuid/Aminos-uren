@@ -2,13 +2,11 @@ package de.fluktuid.aminosaeuren;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -31,18 +29,18 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show());
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
 
         questionFragment = new QuestionFragment();
         statisticsFragment = new StatisticsFragment();
@@ -55,10 +53,11 @@ public class MainActivity extends AppCompatActivity
         transaction.commit();
     }
 
-    public void changeToStatistics(ArrayList<Aminosäure> correct, ArrayList<Aminosäure> wrong) {
+    public void changeToStatistics(ArrayList<AminoAcid> correct, ArrayList<AminoAcid> wrong) {
         Bundle b = new Bundle();
-        b.putSerializable(StatisticsFragment.CORRECT_ANSWERS, correct);
-        b.putSerializable(StatisticsFragment.WRONG_ANSWERS, wrong);
+
+        b.putParcelableArray(StatisticsFragment.CORRECT_ANSWERS, correct.toArray(new AminoAcid[correct.size()]));
+        b.putParcelableArray(StatisticsFragment.WRONG_ANSWERS, wrong.toArray(new AminoAcid[wrong.size()]));
         statisticsFragment.setArguments(b);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, statisticsFragment);
@@ -124,4 +123,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    public void showSnackbar(CharSequence text) {
+        Snackbar s = Snackbar.make(findViewById(R.id.coordinator), text, Snackbar.LENGTH_SHORT);
+        s.show();
+    }
 }
